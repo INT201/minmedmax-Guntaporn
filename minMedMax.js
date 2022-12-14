@@ -1,25 +1,27 @@
 const { template } = require('@babel/core')
-
-function minMedMax(n1, n2, n3) {
+//write your student id, firstname, and lastname here
+// 64130500005 Guntaporn Pornmanee
+function countPosNegValue(posNegIntegerArray) {
   //code here
-  let temp ;
-  // 80 30 1
-  
-if (n1 > n2){
-  temp = n1;
-  n1 = n2 ;
-  n2 = temp; 
-}if (n1 > n3){
-  temp = n1;
-  n1 = n3;
-  n3 = temp;
-}if (n2 > n3){
-  temp = n2;
-  n2 = n3;
-  n3 = temp;
-}
-return {"min" : n1, "mid" : n2,"max" : n3}
+  if (posNegIntegerArray === null || posNegIntegerArray === undefined){
+    return undefined
+  }
+  if (posNegIntegerArray.length===0){
+    return {}
+  }
 
+let pos=0
+let neg=0
+for (const num in posNegIntegerArray ){
+  if (num > 0){
+     pos++
+   }if (num < 0){
+     neg ++
+   }else if (num === 0 ){
+     neg = 0
+     pos = 0
+   }
+return {positive: pos, negative: neg}
 }
-
-module.exports = minMedMax
+}
+module.exports = countPosNegValue
